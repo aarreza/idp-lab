@@ -4,3 +4,5 @@ terraform/.terraform
 terraform/.terraform.lock.hcl
 ansible/venv
 ansible/*.retry
+.DS_Store
+ansible/.DS_Store
