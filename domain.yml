@@ -1,0 +1,49 @@
+# FQDN of your domain
+dns_name: drewlearnscloud.blog
+
+# Hostname of the domain controller
+dc_name: DC-1
+
+# Credentials of the initial domain admin
+initial_domain_admin:
+  username: aarreza_da
+  password: Pizza123!
+
+# Credentials of the local admin created on all workstations
+default_local_admin:
+  username: localadmin
+  password: Localadmin!
+
+# Organizational units
+organizational_units:
+- OU=Roles
+- OU=Privileged,OU=Roles
+- OU=IT
+
+# Domain users - by default, password := username
+users:
+- username: drew
+- username: logan
+- username: adam
+- username: roz
+  OU: OU=IT
+
+# Domain groups
+groups:
+- dn: CN=MyRole,OU=Roles
+  members: [drew, logan, roz]
+- dn: CN=AllMyUsers,CN=Users
+  members: [drew, logan, roz]
+
+# Credentials of the local admin created on all workstations
+default_local_admin:
+  username: localadmin
+  password: Localadmin!
+
+# Workstations to create and to domain-join
+workstations:
+- name: DREW-WKS
+  local_admins: [drew, adam]
+
+# Should the Windows firewall be enabled?
+enable_windows_firewall: no
